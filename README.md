@@ -1,4 +1,4 @@
-# Lilian-Farina---Accenture
+# Lilian-Farina Desafio 2 - Accenture
 
 # DemoQA Selenium Automation (Python + Page Objects)
 
