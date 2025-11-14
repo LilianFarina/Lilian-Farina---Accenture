@@ -1,1 +1,28 @@
+from utils.driver_factory import create_driver
+from pages.home_page import HomePage
+from pages.webtables_page import WebTablesPage
+from faker import Faker
+
+def test_webtables_bonus():
+    driver = create_driver()
+    faker = Faker()
+
+    driver.get("https://demoqa.com/")
+    home = HomePage(driver)
+    page = WebTablesPage(driver)
+
+    # acessar WebTables
+    home.click_elements()
+    page.open_webtables()
+
+    # criar 12 registros
+    page.create_multiple_records(faker, 12)
+
+    # deletar todos os registros criados
+    page.delete_all_records()
+
+    # validar que não restou nenhum registro deletável
+    assert len(driver.find_elements(*page.ALL_DELETE_BUTTONS)) == 0
+
+    driver.quit()
 
