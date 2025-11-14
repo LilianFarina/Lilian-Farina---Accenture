@@ -89,10 +89,10 @@ Deletar todos os registros criados.
 Confirmar que nenhum registro resta na tabela.
 
 🧪 Cenário Bônus (Gherkin)
-Scenario: Criar e deletar 12 registros dinamicamente
+cenario: Criar e deletar 12 registros dinamicamente
     Given que estou na página Web Tables do DemoQA
     When eu crio 12 registros dinamicamente
-    Then todos os registros criados devem aparecer na tabela
+    Tem todos os registros criados devem aparecer na tabela
     When eu deleto todos os registros criados
     Then nenhum dos registros criados deve permanecer na tabela
 
@@ -117,24 +117,6 @@ is_record_present()
 
 delete_record()
 
-▶ Demonstração (GIF ou Imagens)
-
-📌 Opcional, mas recomendado:
-Adicione GIFs ou capturas de tela mostrando a criação dos 12 registros em sequência.
-Coloque algo assim:
-
-## 🎬 Demonstração do Cenário Bônus
-
-📌 Criação automática dos 12 registros:
-
-![Criação dos registros](docs/gif/create_12_records.gif)
-
-📌 Exclusão automática dos registros:
-
-![Exclusão dos registros](docs/gif/delete_12_records.gif)
-
-
-Se quiser, eu posso até gerar um GIF fake ilustrativo pra você usar.
 
 🧠 Por que esse cenário é importante?
 
