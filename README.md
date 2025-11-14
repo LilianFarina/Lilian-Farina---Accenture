@@ -72,6 +72,8 @@ O workflow executa automaticamente os testes a cada push ou pull request.
 Os cenários completos estão na pasta `bdd/features`.
 
 ✅ Seção para adicionar no README – Cenário Bônus (Dinâmico)
+
+
 ⭐ Cenário Bônus – Criação e Exclusão Dinâmica de 12 Registros
 
 Além do fluxo principal, este projeto também inclui um cenário bônus, onde testamos a capacidade do sistema de lidar com múltiplos registros sendo criados e removidos de forma dinâmica.
