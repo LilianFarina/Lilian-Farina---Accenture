@@ -1,1 +1,6 @@
+Scenario: Criar 12 novos registros dinamicamente e depois deletar
+  Given que o usuário está no DemoQA
+  When acessa Elements e WebTables
+  And cria 12 novos registros dinamicamente
+  Then deve deletar todos os registros criados
 
