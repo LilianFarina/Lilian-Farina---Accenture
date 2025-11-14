@@ -1,1 +1,54 @@
+Precisamos adicionar dois novos métodos:
+
+🔹 criar vários registros
+🔹 deletar múltiplos registros
+
+Phyton:
+
+from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
+from selenium.common.exceptions import NoSuchElementException
+
+class WebTablesPage(BasePage):
+
+    WEB_TABLES = (By.XPATH, "//span[text()='Web Tables']")
+    ADD_BUTTON = (By.ID, "addNewRecordButton")
+
+    FIRST_NAME = (By.ID, "firstName")
+    LAST_NAME = (By.ID, "lastName")
+    EMAIL = (By.ID, "userEmail")
+    AGE = (By.ID, "age")
+    SALARY = (By.ID, "salary")
+    DEPT = (By.ID, "department")
+    SUBMIT = (By.ID, "submit")
+
+    # select all delete buttons
+    ALL_DELETE_BUTTONS = (By.CSS_SELECTOR, "span[title='Delete']")
+
+    def open_webtables(self):
+        self.click(self.WEB_TABLES)
+
+    def create_record(self, faker):
+        self.click(self.ADD_BUTTON)
+        self.write(self.FIRST_NAME, faker.first_name())
+        self.write(self.LAST_NAME, faker.last_name())
+        self.write(self.EMAIL, faker.email())
+        self.write(self.AGE, "30")
+        self.write(self.SALARY, "5000")
+        self.write(self.DEPT, "QA")
+        self.click(self.SUBMIT)
+
+    def create_multiple_records(self, faker, quantity):
+        for _ in range(quantity):
+            self.create_record(faker)
+
+    def delete_all_records(self):
+        while True:
+            try:
+                delete_buttons = self.driver.find_elements(*self.ALL_DELETE_BUTTONS)
+                if not delete_buttons:
+                    break
+                delete_buttons[0].click()
+            except NoSuchElementException:
+                break
 
